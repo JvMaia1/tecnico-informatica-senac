@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo lista de definição</title>
+    <style>
+        header {
+            text-align: center;
+        }
+
+        body {
+            background-color: bisque;
+            line-height: 1.5;
+            margin: 10px;
+        }
+
+        body p, dl{
+            background-color: rgba(121, 107, 88, 0.301);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        img {
+            max-width: 100px;
+            max-height: auto;
+            background-color: rgba(255, 255, 255, 0.623);
+            border-radius: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><u>Listas de definição</u></h1>
+        <hr>    
+    </header>
+    
+    <p>Estrutura útil para pares de informação, ou seja, dados baseados em um <b>termo</b> e uma <b>definição</b> para este termo.</p>
+    <p>Exemplos: glossario, dicionario, metadados, informações de contato.</p>
+    <hr>
+
+    <!-- dl = definition list -->
+    <!-- dt = definition term -->
+    <!-- dd =  definition data -->
+    <h2>Glossario sobre front-end</h2>
+        <dl>
+            <dt>HTML</dt>
+                <dd>Linguagem, de marcação de hipertexto</dd>
+                <dd>è a principal tecnologia da web, utilizada em todos os sites.</dd>
+                <dd>Atualmente está na versão 5</dd>
+
+            <dt>CSS</dt>
+                <dd>Linguegem para estilização de websites</dd>
+
+            <dt>JavaScript</dt>
+                <dd>Linguagem de interação do website</dd>
+        </dl>
+
+    <hr>
+
+    <h2>Dados de contato</h2>
+        <dl>
+            <dt>E-mail:</dt>
+                <dd>definicao@tags.com</dd>
+            <dt>Telefone:</dt>
+                <dd>(11) 4002-8922</dd>
+        </dl>
+
+    <hr>
+
+    <h2>Especificações do produto</h2>
+        <dl>
+            <dt>Processador:</dt>
+                <dd>Intel Core i9</dd>
+                <dd><img src="https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/oficinadosbits/media/uploads/produtos/foto/ybyczukx/file.png" alt="Foto do processador core i9"></dd>
+            <dt>Memoria ram:</dt>
+                <dd>16GB</dd>
+                <dd><img src="https://img.terabyteshop.com.br/produto/g/memoria-ddr4-kingston-fury-beast-rgb-16gb-3200mhz-black-kf432c16bb2a16_178481.jpg" alt="Foto pente de memoria 16gb"></dd>
+        </dl>
+
+</body>
+</html>

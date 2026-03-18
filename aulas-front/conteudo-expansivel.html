@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo conteudo expansivel</title>
+    <style>
+        header {
+            text-align: center;
+        }
+
+        body {
+            background-color: bisque;
+            line-height: 1.5;
+            margin: 10px;
+        }
+
+        details{
+            background-color: rgba(165, 42, 42, 0.226);
+            border-radius: 20px;
+            padding: 5px;
+            margin-bottom: 20px;
+        }
+
+        details ol li, details p, details ul li{
+            background-color: rgba(165, 42, 42, 0.384);
+            border-radius: 20px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Details e summary</h1>
+        <hr>
+    </header>
+
+    <p>Úteis para criação de seções de ajuda, FAQ, conteúdo extra com a funcionalidade de <b>abrir/fechar</b> (famoso accordion).</p>
+
+    <details>
+        <summary>conteudo visto nas aulas até 13/03.</summary>
+            <ol>
+                <li>Estrutura básica</li>
+                <li>Títulos e textos em geral</li>
+                <li>Listas ordenadas e não ordenadas</li>
+                <li>Listas de definição</li>
+            </ol>
+    </details>
+
+    <h2>FAQ (perguntas e respostas)</h2>
+    <details name="faq">
+        <summary>Posso subornar o professor</summary>
+            <p>Claro, com paçocas</p>
+    </details>
+
+    <details name="faq">
+        <summary>Posso ficar sem ideia e escrever qualquer coisa?</summary>
+            <ul>
+                <li>Aparentemente sim...</li>
+                <li>Na duvida pede pra IA</li>
+            </ul>
+    </details>
+
+</body>
+</html>

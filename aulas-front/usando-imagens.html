@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usandom imagens</title>
+</head>
+<style>
+    body{
+        background-color: antiquewhite;
+    }
+    
+    main{
+        margin: 20px;
+        line-height: 1.3;
+    }
+    
+    img{
+        max-width: 450px;
+        max-height: auto;
+        justify-content: left;
+    }
+    
+    dt{
+        text-decoration: underline;
+    }
+</style>
+<body>
+    <header>
+        <h1>Usando imagens no HTML</h1>
+        <hr>
+    </header>
+
+    <main>
+
+        <dl>
+            <dt>JPG/JPEG</dt>
+                <dd>Formato utilizado para fotos em geral, com milhões de cores <hr> </dd>
+            <dt>GIF</dt>
+                <dd>Formato com menos cores, voltado para desenhos, ilustrações, suporta animações e transparencia. <hr></dd>
+            <dt>PNG</dt>
+                <dd>Utilizado para fotes, com milhões de cores, suporta transparencia e é mais compacto. <hr></dd>
+            <dt>WEBP</dt>
+                <dd>Formato mais moderno, com suporte a milhões de cores, transparencia mantendo a compactação. <hr></dd>
+            <dt>SVG</dt>
+                <dd>Formato vetorial, não tem problema com redimensionamento, muito comum para logotipos e desenhos. <hr></dd>       
+        </dl>
+        
+        <h2>Exemplos:</h2>
+            <h3>Banda Pink Floyd</h3>
+                <img src="img/pink-floyd.jpg" alt="Foto dos integrantes da banda Pink floyd" height="375" width="600">
+                <!-- Sobre os atributos
+                Src == indica o caminho do arquivo da imagem
+                Alt == texto alternativo descrevendo brevemente a imagem (importante para acessibilidade)-->
+        
+        <h2>Imagens dentro de outras imagens</h2>
+            <p>
+                <img src="img/logo-php.jpg" alt="Logo da linguagem PHP" height="90" width="90">
+            </p>
+            
+            <!-- Havendo espaço as imagens aparecerão lado a lado -->
+            <div>
+                <img src="img/logo-html5.png" alt="Logo da linguagem HMTL" height="90" width="90">
+                <img src="img/cachorro.jpg" alt="Foto de um cachorro preto" height="200" width="400">
+                <img src="img/diagrama-dom.png" alt="Diagrama DOM" height="505" width="654">
+            </div>
+
+            <hr>
+
+            <!-- Nessa estrutura, aparecaram uma abaixo da outra, mesmo que haja espaço na tela -->
+            <div>
+                <img src="img/logo-html5.png" alt="Logo da linguagem HMTL" height="90" width="90">
+            </div>
+
+            <div>
+                <img src="img/cachorro.jpg" alt="Foto de um cachorro preto" height="200" width="400">
+            </div>
+
+            <div>
+                <img src="img/diagrama-dom.png" alt="Diagrama DOM" height="505" width="654">
+            </div>
+
+            <hr>
+
+            <!-- Havendo espaço fica lado a lado, caso contrario elas se adaptam -->
+            <div>
+                <img src="img/dedos.jpg" alt="Foto de dedos pintados com rostos">
+                <img src="img/pacoca.jpg" alt="Foto de pote com paçocas">
+                <img src="img/ideias.jpg" alt="Foto de papeis amassados representando ideias">
+            </div>
+
+        <h2>Imagens (ou ilustrações) com legenda</h2>
+            
+            <!-- HTML5: Com semântica (a imagem tem relação com a legenda) -->
+            <figure>
+                <img src="img/stonehenge.jpg" alt="">
+                <figcaption>Foto tirada pelo fotógrafa Perola Cobaia</figcaption>
+            </figure>
+
+            <figure>
+                <img src="img/logo-html5.png" alt="">
+                <img src="img/logo-php.jpg" alt="">
+                <figcaption>Tecnologias do Back-end</figcaption>
+            </figure>
+        
+        <!-- Ilustração de codigo, com um contexto dado pelo figure/figcaption -->
+        <h2>Exemplo: tutorial do JavaScript</h2>
+            <figure>
+                <pre>
+                    <code> (nota1, nota2) => (nota1 + nota2)/2</code>
+                </pre>
+                <figcaption>
+                    Função JavaScript que recebe 2 parâmetros e realiza o cáuculo matemático de média.
+                </figcaption>
+            </figure>
+
+            <hr>
+
+        <h2>WebP vs JPEG</h2>
+            <img src="img/montanhas.webp" alt="">
+            <img src="img/montanhas.jpg" alt="">
+            <!-- Se possivel, priorize o formato webp por ser mais moderno e otimizado, alem de suportar transparência e animação -->
+
+        <h2>Formato vetor para a web: SVG</h2>
+            <img src="img/black-cat.png" alt="">
+            <img src="img/black-cat.svg" alt="">
+    </main>
+</body>
+</html>
