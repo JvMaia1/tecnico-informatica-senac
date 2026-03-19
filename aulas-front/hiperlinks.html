@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiperlinks</title>
+    <style>
+        body{
+            background-color: rgba(55, 129, 113, 0.274);
+            margin: 50px;
+        }
+
+        a{
+            background-color: rgba(0, 0, 0, 0.267);
+            border-radius: 10px;
+            padding: 5px;
+        }
+        .link:hover{
+            transform: scale(1.02);
+            transition-duration: 0.3s;
+        }
+
+        li{
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Trabalhando com links (ou hiperlinks)</h1>
+    <hr>
+
+        <h2>Absoluto/Externo</h2>
+            <p>Carrega/aponta para endereços externos. Normalmente, são usados para abrir outros sites.</p>
+
+            <h3>Exemplos:</h3>
+                <!-- Lembretes:
+                tag <a>         -> elemento suado para criar links de navegação
+                atr href=''     -> usado para definir endereço/referencia do link
+                atr target='    -> blank' faz com que o link seja aberto em uma nova aba/guia do navegador
+                -->
+                <p class="link">
+                    <a href="https://www.sp.senac.br" target="_blank">Acesse o site do Senac SP </a>
+                </p>
+
+                <p>Sites importantes no mundo Front-End: </p>
+                
+                <ul>   
+                    <li class="link"><a href="https://w3c.br" target="_blank">W3C</a></li>
+                    <li class="link"><a href="https://www.w3schools.com" target="_blank">W3C Schools</a></li>
+                </ul>
+
+        <h2>Relativo/interno</h2>
+            <p>Carrega/Aponta páginas do próprio site, ou seja, páginas internas.</p>
+            <h3>Exemplos:</h3>
+                <p class="links">
+                    Veja os exemplos de 
+                    <a href="elementos-textuais.html">Elementos texuais</a>
+                </p>
+        
+        <h2>Lista de Exercicios</h2>
+                <ul>
+                    <li class="link"><a href="exercicios/exercicio01.html">Exercicio 1</a></li>
+                    <li class="link"><a href="exercicios/exercicio02.html">Exercicio 2</a></li>
+                    <li class="link"><a href="exercicios/exercicio03.html">Exercicio 3</a></li>
+                </ul>
+                
+</body>
+</html>
