@@ -1,0 +1,98 @@
+/* regras css */
+:root{
+    --cor-fundo: rgb(255, 228, 196);
+    --cor-secundaria: rgb(0, 0, 0);
+    --cor-terciaria: purple;
+    --fonte-do-sistema: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+    background-color: var(--cor-fundo);
+    font-family: var(--fonte-do-sistema);
+    line-height: 1.6;
+    color: var(--cor-secundaria);
+    margin: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header{
+    background-color:var(--cor-secundaria) ;
+    text-align: center;
+    color: white;
+    padding-block: 30px;
+}
+
+h2{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-inline-start: var(--cor-terciaria) 20px solid;
+    border-block-end: var(--cor-terciaria) 4px solid;
+    
+    /* espaçamento dentro do elemento */
+    padding-inline-start: 30px;
+
+    /* espaçamento fora do elemento */
+    margin-inline-start: 10px;
+
+}
+
+h3{
+    text-align: center;
+    font-size: 26px;
+    color: white;
+    text-shadow: 
+        var(--cor-secundaria) 0px 0px 20px,
+        purple 0px 0px 8px;
+}
+
+strong{
+    background-color: rgb(255, 0, 0);
+
+}
+
+/* Seletor descendentes */
+/* Estiliza apenas strong dentro de p */
+p strong {
+    background-color: orange;
+    border: solid 1px red;
+    
+}
+
+main{
+    width: 80%;
+    margin-inline: auto;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 10px;
+    margin-block-start: 10px;
+    border-radius: 2%;
+    box-shadow: #333 0px 0px 10px;
+}
+
+#link:hover{
+    transform:scale(1.05);
+    margin-inline-start: 15px;
+    transition: 0.5s;
+}
+
+footer{
+    margin-block-start: 20px;
+    border-block-start: purple 20px solid;
+    margin-inline: auto;
+    width: 80%;
+    padding: 10px;
+    background-color: rgba(22, 22, 22, 0.3);
+    color:aliceblue;
+    text-align: end;
+    border-radius: 2%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+footer p{
+    text-shadow: #333 0px 0px 5px;
+    text-decoration: underline;
+}
