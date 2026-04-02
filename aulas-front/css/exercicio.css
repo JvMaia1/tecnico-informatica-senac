@@ -1,0 +1,113 @@
+:root{
+    --cor-principal: #2e2d2d ;
+    --cor-secundaria: #612d53;
+    --cor-terciaria: #c26183;
+    --cor-adicional: #f3f4f4;
+}
+
+body{
+    color: var(--cor-adicional);
+    font-size: 20px;
+    text-shadow: var(--cor-secundaria) 0 0 5px;
+    background-color: var(--cor-secundaria);
+    width: 75%;
+    margin-inline: auto;
+}
+
+header{
+    text-align: center;
+    background-color: var(--cor-principal);
+    border-radius: 15px;
+    padding-inline: 30px;
+    padding-block: 1px;
+    margin-block: 20px;
+}
+
+h1, h2{ text-decoration: underline; }
+
+main, footer{
+    margin-block: 20px;
+    background-color: var(--cor-principal) ;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+strong{ color: var(--cor-terciaria); }
+
+.destaque{ color:var(--cor-terciaria); }
+
+dl{ margin-inline-start: 10px; }
+
+dt{
+    margin-block-start: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+dd{
+    background-color: var(--cor-terciaria);
+    padding: 2px;
+    margin-block-start: 5px;
+    border-radius: 5px;
+}
+
+summary::marker{ color: var(--cor-terciaria); }
+/*  
+a{ color: var(--cor-adicional); }
+
+a:hover{
+    display: block;
+    transform: scale(1.05);
+    margin-inline-start: 10.5px;
+    transition: 0.15s;
+    color: var(--cor-terciaria);
+}
+*/
+footer{ text-decoration: underline; }
+/* 
+.exemplo img{
+    
+    transition: 30s;
+    
+}
+
+.exemplo img:hover{
+    transform: rotate(190deg) scale(2);
+    margin-inline: auto;
+
+}
+*/
+.exemplo-dois{ text-align: center;}
+
+.exemplo-dois a{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    background-color: yellow;
+    padding: 4px;
+    transition: 2s;
+    transform: scale(1);
+}
+
+.exemplo-dois a:hover{
+    display: inline-block;
+    background-color: #f3f4f4;
+    transform: scale(1.2);
+}
+
+.exemplo-dois{ text-align: center;}
+
+.exemplo{
+    text-align: center;
+    img{ 
+        transition: 2s;
+        &:hover{
+            transform: rotate(190deg) scale(2);
+            margin-inline: auto;
+        }
+    }
+}
+
+

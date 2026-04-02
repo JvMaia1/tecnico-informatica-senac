@@ -1,0 +1,214 @@
+/* regras css */
+:root{
+    --cor-fundo: rgb(255, 228, 196);
+    --cor-secundaria: rgba(0, 0, 0, 0.9);
+    --cor-terciaria: purple;
+    --fonte-do-sistema: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+    background-image: url(../img/double-bubble-dark.png
+    );
+    /* forçando a imagem a cobrir todo o espaço disponivel */
+    background-size: cover;
+    /* 'prendendo' a imagm de fundo, evitando a rolagem */
+    background-attachment: fixed;
+    font-family: var(--fonte-do-sistema);
+    line-height: 1.6;
+    color: var(--cor-secundaria);
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header{
+    /* opacity: 0.9; */
+    background-color:var(--cor-secundaria) ;
+    text-align: center;
+    color: white;
+    padding-block: 15px;
+    /* fazendo com que o cabeçalho fique 'grudado/preso' no topo da tela */
+    position: sticky;
+    z-index: 100;
+    top: 0;
+}
+
+h2{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-inline-start: var(--cor-terciaria) 20px solid;
+    border-block-end: var(--cor-terciaria) 4px solid;
+    /* espaçamento dentro do elemento */
+    padding-inline-start: 30px;
+    /* espaçamento fora do elemento */
+    margin-inline-start: 10px;
+}
+
+h3{
+    font-size: 26px;
+    color: white;
+    text-shadow: 
+        var(--cor-secundaria) 0px 0px 20px,
+        purple 0px 0px 8px;
+}
+
+strong{
+    background-color: rgb(255, 0, 0);
+}
+
+/* Seletor descendentes */
+/* Estiliza apenas strong dentro de p */
+p strong {
+    background-color: orange;
+    border: solid 1px red;
+}
+
+main{
+    width: 80%;
+    margin-inline: auto;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 10px;
+    margin-block-start: 20px;
+    border-radius: 10px;
+    box-shadow: #333 0px 0px 10px;
+}
+
+
+footer{
+    margin-block: 20px;
+    border-block-start: purple 20px solid;
+    margin-inline: auto;
+    width: 80%;
+    padding: 10px;
+    /* criando gradiente horizontal da esquerda pra direita 
+    sendo possivel de usar na diagonal tambem com deg*/
+    background: linear-gradient(90deg ,purple, black);
+    color:aliceblue;
+    text-align: end;
+    border-radius: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: #333 0px 0px 5px;
+    text-decoration: underline;
+}
+/* Seletor de classe */
+.destaque{
+    color: rgb(255, 20, 20);
+    font-style: italic;
+}
+
+.sombra-texto{ text-shadow: #000000 0 0 1px; }
+
+.sombra-caixa{ box-shadow: rgb(0, 0, 0) 0 0 5px; }
+
+/* seletor pseudo-classe, sempre inicia com ':'. A pseudo-classe esta normalmente ligada a um elemento*/
+
+.link-animacao{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    width: 70%;
+    margin-inline-start: 10px;
+    a{
+        background-color: rgb(214, 210, 205);
+        padding: 5px;
+        border-radius: 10px;
+        display: block;
+        
+        &:hover{
+            transform:scale(1.05);
+            color: red;
+            transition: 0.133s;
+        }
+    }
+}
+
+img{ max-width: 100%; }
+
+figure{
+    margin: 0;
+    padding: 0;
+    max-width: 640px;
+    width: 100%;
+    margin-inline: auto;
+    position: relative;
+    figcaption{
+        font-weight: bold;
+        position: absolute;
+        bottom: 50px;
+        background-color: rgba(255, 255, 255, 0.6);
+        text-align: center;
+        width: 100%;
+        box-shadow: black 0 0 20px;
+    }
+}
+
+nav{
+    background-color: rgba(212, 212, 212, 0.8);
+    border-radius: 5px;
+    width: 80%;
+    margin-inline: auto;
+    padding: 10px;
+
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        /* reset ^^ */
+
+        /* para permitir ajustes de tamanho (largura e altura) transformamos o elemento em flex. Isso tambem possibilita o uso de propriedades de alinhamento. */
+        display: flex;
+        justify-content: space-evenly;
+
+        li{
+            a{
+                color: rgb(177, 36, 177);
+                text-shadow: rgba(0, 0, 0, 0.658) 0 0 5px ;
+                font-weight: bold;
+                font-size: 18px;
+                text-decoration: none;
+                display: flex ;
+                justify-content: center;
+                width: 100px;
+                border-radius: 10px;
+                /* Usamos o & para associar o :hover eo :focus ao link (tag a). :focus para navegaçao em teclado e :hover para mouse */
+                &:hover, &:focus, &.link-atual{
+                    transform: scale(1.05);
+                    background-color: #0000001c;
+                }
+            }
+        }
+    }
+}
+
+.exemplos-comuns{
+    li{
+        &:first-child::marker{
+        content: '🤣 ';
+        font-size: 20px;
+        }
+
+        &:nth-child(2)::marker{
+            content: '💸 ';
+        }
+        
+        &:nth-child(3)::marker{
+            content: '💼 ';
+        }
+
+        &:nth-child(4)::marker{
+            content: '🧒 ';
+        }
+    }
+}
+
+summary{
+    /* resetamos o summary */
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+summary::before{ content: '➕ '; }
+
+details[open] summary::before{ content: '➖ '; }
