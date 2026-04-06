@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidades de Medida</title>
+    <style>
+
+        html{ font-size: 16px; }
+        body{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            padding: 20px;
+            background-color: rgba(133, 102, 123, 0.37);
+            text-align: center;
+        }
+        h1{
+            color: white;
+            text-shadow: black 0 0 5px;
+        }
+        #container{
+            border: dashed 2px gray;
+            margin-block-end: 20px;
+            padding: 10px;
+            background-color: white;
+        }
+
+        .caixa{
+            background-color: rgb(51, 48, 44);
+            color: beige;
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            height: 50px;
+            margin-block-end: 10px;
+            border: dashed 3px red;
+            color: red;
+
+        }
+        
+        b{ margin-inline: 4px; }
+
+        /* valor fixo baseado em pixeis */
+        .exemplo-pixels{ width: 250px; }
+
+        /* Porcentagem: unidade/variavel o valor muda de acordo com o elemento pai. */
+        .exemplo-porcentagem{ width: 38%; }
+
+        /* REM: unidade relativa/variavel de acordo com o font-size do elemento raiz/root */
+        .exemplo-rem{ width: 15.5rem; }
+
+        /* VW (viewport width): unidade relativa/variavel de acordo com a largura da viewport (área util do navegador) */
+        .exemplo-vw{ width: 34vw; }
+        
+        /* VH (viewport heigth): unidade relativa/variavel de acordo com a altura da viewport (área util do navegador) */
+        .exemplo-vh{ height: 20vh; }
+
+        /* EM: unidade relativa/variavel de acordo com o font-size do elemento pai. atenção, se possivel evite usar esta medida em novos projetos */
+        .exemplo-em{ width: 15em; }
+
+        /* tamanho de fonte utilizado para demnstrar o EM */
+        .container-2{ font-size: 25px; }
+
+    </style>
+</head>
+<body>
+    <h1>Comparando as diferentes unidades de medida</h1>
+    <hr>
+    <div id="container">
+        <p><i>Este é o elemento <b>PAI</b></i></p>
+
+        <div class="caixa exemplo-pixels">
+            Aqui usamos <b>pixels</b>
+        </div>
+
+        <div class="caixa exemplo-porcentagem">
+            Aqui usamos <b>porcentagem</b>
+        </div>
+
+        <div class="caixa exemplo-rem">
+            Aqui usamos <b>REM</b>
+        </div>
+
+        <div class="caixa exemplo-vw"> 
+            Aqui usamos <b>VW</b>
+        </div>  
+
+        <div class="container-2">        
+            <div class="caixa exemplo-em">
+                Aqui usamos <b>EM</b>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="caixa exemplo-vh">Aqui usamos <b>VH</b></div>
+</body>
+</html>
