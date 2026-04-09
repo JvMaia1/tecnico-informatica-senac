@@ -6,7 +6,10 @@
     <title>Document</title>
     <style>
         :root{
-            --raio-borda-padrao: 10px
+            --raio-borda-padrao: 1rem;
+            --cor-codigo: rgb(85, 85, 85);
+            --padding-padrao: 4rem;
+            --cor-letras: rgb(53, 53, 53);
         }
 
         *, *::before *::after{ box-sizing: border-box;}
@@ -14,22 +17,37 @@
         body{
             width: 70%;
             margin: 0 auto;
-            .texto{
-                p{
-                    width: 70%;
-                    margin: 0 auto;
-                    padding: 10px;
-                    background-color: rgb(229, 236, 126);
-                    border-radius: var(--raio-borda-padrao) ;
-                    margin-block: 5px;
+            background-image: url(https://giffiles.alphacoders.com/360/36010.gif) ;
+            background-size: cover;
+            color: white;
+        }
+        
+        h1, h2, h3{
+            text-align: center;
+            text-shadow: black 0 0 5px;   
+        }
+
+        .texto{
+            p{
+                width: 70%;
+                margin: 0 auto;
+                padding: 10px;
+                border-radius: var(--raio-borda-padrao) ;
+                margin-block: 5px;
+                background-color: var(--cor-letras);
+                text-align: start ;
+                &.codigo{
+                    background-color: rgb(53, 53, 53);
+                    width: 30%;
                 }
             }
         }
-
-        .ex-min{
-            background-color: antiquewhite;
+        article{
+            background-color: rgba(134, 134, 134, 0.705);
+            margin-block: 2rem;
             padding: 5px;
             border-radius: var(--raio-borda-padrao);
+            text-align: center;
             img{
                 display: block;
                 margin: 0 auto;
@@ -38,46 +56,45 @@
             }
         }
 
-        hr{ width: 200px; }
+        hr{ 
+            display: block;
+            width: 200px; 
+            border: 0;
+            border-top: 5px dashed black;
+            margin-block: 0;
+        }
         
         .cem-px{ width: 100px; }
 
-        .ex-min :is(h2, p){
-            text-align: center;
-        }
+        .ex-min :is(h2, p){ text-align: center; }
 
     </style>
 </head>
 <body>
     <h1>Explicando as funçoes Min, Max, Calc e Clamp</h1>
-        <div class="ex-min">        
-            <h2>Usando min() e max()</h2>
+    <article>
+        <h2>Aprendendo min() e max()</h2>
             <div class="texto">
                 <p>a função min(), recebe 2 ou mais parametros e retorna o <b>menor</b> valor entre todos.</p>
                 <p>a função max(), recebe 2 ou mais parametros e retorna o <b>maior</b> valor entre todos.</p>
-                <p>No exemplo abaixo, assim que você passar o mouse sob a imagem a função max(100px, 200px) sera executada. Ela retornara o maior valor, fazendo com que a imagem mude para 200px</p>
-                <p>
-                    <code> <pre>
-                        .ex-min{
-                            background-color: antiquewhite;
-                            padding: 5px;
-                            border-radius: var(--raio-borda-padrao);
-                            img{
-                                display: block;
-                                margin: 0 auto; 
-                                max-width: min(100px, 200px);
-                                &:hover{ max-width: max(100px, 200px); }
-                            }
-                        }
-                        </pre>
-                    </code>
-                </p>
+                <p>No exemplo abaixo, assim que você passar o mouse sob a imagem, a função max(100px, 200px) sera executada. Ela retornara o maior valor, fazendo com que a imagem mude para o maior valor: 200px</p>
+                <p>Ao tirar o mouse de cima a funçao min() volta e escolhe o menor valor: 100px</p>
+                <p class="codigo"><code>max-width: min(100px, 200px); <br> :hover{ <br>max-width: max(100px, 200px); <br> }</code></p>
             </div>
+
             <p>100px</p><hr class="cem-px">
             <img src="../img/css.jpg" alt="">
             <hr>
             <p>200px</p>
-        </div>
+    </article>
     
+    <article>
+        <h2>Aprendendo calc()</h2>
+        <div class="texto">
+            <p>A função calc() recebe 2 ou mais parametros e devolve o resultado da operação matemática especificada</p>
+            <p>Ao invés de separar os valores com ',' como no min e max, separamos com o operador que queremos.</p>
+            <p>operadores permitidos: - para subtração, + para adição, * para multiplicação, / para divisão</p>
+        </div>
+    </article>
 </body>
 </html>
