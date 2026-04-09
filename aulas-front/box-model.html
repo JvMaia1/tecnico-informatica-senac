@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre o Box model</title>
+    <style>
+        *, *::before, *::after{ box-sizing: border-box; }
+        body{
+            font-family: sans-serif;
+            background-color: bisque;
+            padding-block: 40px;
+            padding-inline: 20px;
+            margin: 0;
+        }
+        .explicacao{
+            margin-block-end: 30px;
+            padding: 1rem;
+            background-color: white;
+            border-inline-start: solid 5px blue;
+        }
+        .caixa{
+            background-color: orange;
+            height: 100px;
+            width: 300px;
+            border: solid 5px red;
+            padding-block: 20px;
+            padding-inline: 10px;
+        }
+        /* Box model padrão: content-box
+        o tamanho total/final será sempre a
+        soma de width e/ou height + padding + border   */
+        .box-model-padrao{ box-sizing: content-box; }
+
+        /* Box model corrigido: border box
+        O tamanho total/final será exatamente 
+        o que foi definido em width e/ou height.
+        portanto, padding e border são 
+        'compensados/ajustado' automaticamente*/
+        .box-model-corrigido{ box-sizing: border-box; }
+    </style>
+</head>
+<body>
+    <h1>Box model do CSS</h1>
+        <div class="explicacao">
+            <h2>Definição</h2>
+                <p>O Box model (modelo caixa) é um conceito fundamental no CSS que define <b>como </b> os elementos são <b>dimensionados</b> e <b>posicionados</b> na pagina</p>
+                <p>Nos exemplos abaixos, ambas as <b>caixas </b> possuem <code>width:300px</code> no CSS. mas, na pratica, suas dimensões finais são diferentes.</p>
+        </div>
+
+        <h2>Caixa 1: usando Box Model padrão</h2>
+            <div class="caixa box-model-padrao">Esta caixa tem 300px de largura</div>
+
+        <h2>Caixa 2: usando Box Model corrigido</h2>
+            <div class="caixa box-model-corrigido">Esta caixa tem 300px de largura</div>
+            
+</body>
+</html>

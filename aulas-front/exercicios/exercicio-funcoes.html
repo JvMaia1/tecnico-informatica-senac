@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --raio-borda-padrao: 10px
+        }
+
+        *, *::before *::after{ box-sizing: border-box;}
+
+        body{
+            width: 70%;
+            margin: 0 auto;
+            .texto{
+                p{
+                    width: 70%;
+                    margin: 0 auto;
+                    padding: 10px;
+                    background-color: rgb(229, 236, 126);
+                    border-radius: var(--raio-borda-padrao) ;
+                    margin-block: 5px;
+                }
+            }
+        }
+
+        .ex-min{
+            background-color: antiquewhite;
+            padding: 5px;
+            border-radius: var(--raio-borda-padrao);
+            img{
+                display: block;
+                margin: 0 auto;
+                max-width: min(100px, 200px);
+                &:hover{ max-width: max(100px, 200px); }
+            }
+        }
+
+        hr{ width: 200px; }
+        
+        .cem-px{ width: 100px; }
+
+        .ex-min :is(h2, p){
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Explicando as funçoes Min, Max, Calc e Clamp</h1>
+        <div class="ex-min">        
+            <h2>Usando min() e max()</h2>
+            <div class="texto">
+                <p>a função min(), recebe 2 ou mais parametros e retorna o <b>menor</b> valor entre todos.</p>
+                <p>a função max(), recebe 2 ou mais parametros e retorna o <b>maior</b> valor entre todos.</p>
+                <p>No exemplo abaixo, assim que você passar o mouse sob a imagem a função max(100px, 200px) sera executada. Ela retornara o maior valor, fazendo com que a imagem mude para 200px</p>
+                <p>
+                    <code> <pre>
+                        .ex-min{
+                            background-color: antiquewhite;
+                            padding: 5px;
+                            border-radius: var(--raio-borda-padrao);
+                            img{
+                                display: block;
+                                margin: 0 auto; 
+                                max-width: min(100px, 200px);
+                                &:hover{ max-width: max(100px, 200px); }
+                            }
+                        }
+                        </pre>
+                    </code>
+                </p>
+            </div>
+            <p>100px</p><hr class="cem-px">
+            <img src="../img/css.jpg" alt="">
+            <hr>
+            <p>200px</p>
+        </div>
+    
+</body>
+</html>

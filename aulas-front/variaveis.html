@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usando variaveis</title>
+    <style>
+        *, *::before, *::after{ box-sizing: border-box; }
+        /* Declarando variáveis no seletor :root */
+        :root{
+            --cor-principal: #2593D9;
+            --cor-secundaria: #D9D625;
+            --cor-terciaria: #D92525;
+            --cor-adicional:#844242;
+            --cor-fundo: #3C4E59;
+            --padding-padrao: 0.5rem;
+            --raio-borda: 5px;
+        }
+
+        body{
+            background-color: white;
+            color: white;
+        }
+
+        .explicacao{
+            background-color: var(--cor-fundo);
+            padding: var(--padding-padrao);
+            border-radius: var(--raio-borda) ;
+        }
+
+        h2{
+            color: var(--cor-terciaria);
+            background-color: #D9D625;
+            border-radius: var(--raio-borda);
+
+        }
+
+        a{
+            display: block;
+            color: var(--cor-terciaria);
+            background-color: var(--cor-fundo);
+            width: 150px;
+            text-align: center;
+            padding: var(--padding-padrao);
+            border-radius: 5px;
+        }
+
+        .destaque{
+            color: var(--cor-terciaria);
+            font-weight: bold;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <h1 class="destaque">Trabalhando com variáveis</h1>
+    <div class="explicacao">
+        <h2>O poder das variáveis</h2>
+        <p>As <span class="destaque">variáveis (ou custom proprieties)</span> tornam o código CSS mais fácil de manter e organizar, principalmente quando se precisa mudar aspectos visuais de acordo com alguma preferencia ou interação do usuário (exemplo: mudança de paleta de cores ou tema visual).</p>
+        <p>Exemplo: se quisermos mudar a cor do link abaixo e do titulo, basta alterar a variável que define a cor desses elementos.</p>
+    </div>
+    <p><a href="">Link Qualquer</a></p>
+</body>
+</html>
