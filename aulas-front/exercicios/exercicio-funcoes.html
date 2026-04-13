@@ -5,96 +5,273 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        :root{
-            --raio-borda-padrao: 1rem;
-            --cor-codigo: rgb(85, 85, 85);
-            --padding-padrao: 4rem;
-            --cor-letras: rgb(53, 53, 53);
+        :root{--raio-borda-padrao: 1rem;
         }
 
-        *, *::before *::after{ box-sizing: border-box;}
+        *, *::before, *::after{ box-sizing: border-box;}
 
         body{
-            width: 70%;
+            width: clamp(300px, 90%, 1200px);
             margin: 0 auto;
+            margin-block: 5rem;
             background-image: url(https://giffiles.alphacoders.com/360/36010.gif) ;
             background-size: cover;
             color: white;
-        }
+
+            &:has(button#sai-de-baixo:active) main{
+                transform: translateY(3000px) scale(0.1);
+            }
+
+            &:has(button#rolar:active) {
+                main{
+                    transform: rotate(7200deg) scale(0.0000001);
+                }
+                background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/disp/6c943856897191.59c0e52d51c27.gif);
+                background-position: center;
+            }
         
+        main{ transition: transform 2s ease-in-out; }
+
+        h1{ text-shadow: black 0 0 20px;}
+
         h1, h2, h3{
             text-align: center;
             text-shadow: black 0 0 5px;   
         }
 
-        .texto{
-            p{
-                width: 70%;
+        .conteudo{
+            width: clamp(200px, 90%, 1000px);
+            margin: 0 auto;
+            margin-block-end: 2rem;
+            padding: 1rem;
+            border-radius: var(--raio-borda-padrao);
+            box-shadow: 0 0 30px black;
+            summary{
+                color: #e0e0e0;
+                text-decoration: underline;
+                &::marker{
+                    color:#0CF25D;
+                }
+            }
+            .explicacao p{
+                width: 90%;
                 margin: 0 auto;
                 padding: 10px;
-                border-radius: var(--raio-borda-padrao) ;
+                box-shadow: 0 0 2rem black;
                 margin-block: 5px;
-                background-color: var(--cor-letras);
+                background-color: #025951;
                 text-align: start ;
+                &:hover{
+                    transform: scale(1.05);
+                    transition: transform 0.2s ease;
+                }
                 &.codigo{
                     background-color: rgb(53, 53, 53);
-                    width: 30%;
+                    max-width: clamp(20vh, 260px, 500px);
+                    white-space: pre-wrap;
                 }
             }
         }
-        article{
-            background-color: rgba(134, 134, 134, 0.705);
+
+        .min-max, .calc, .clamp{
+            background-color: #02735ec4;
             margin-block: 2rem;
             padding: 5px;
             border-radius: var(--raio-borda-padrao);
             text-align: center;
-            img{
-                display: block;
-                margin: 0 auto;
-                max-width: min(100px, 200px);
-                &:hover{ max-width: max(100px, 200px); }
-            }
+        }
+        
+        img{
+            display: block;
+            margin: 0 auto;
+            width: 200px;
         }
 
+        .min-max img{
+            max-width: min(100px, 200px);
+            &:hover{ max-width: max(100px, 200px); }
+        }
+
+        .calc button:active + img{
+            max-width: calc(50px + 50px);
+            padding-block-end: 79px;
+        }
+        
         hr{ 
             display: block;
             width: 200px; 
             border: 0;
-            border-top: 5px dashed black;
+            border-top: 5px dashed #0CF25D;
             margin-block: 0;
         }
         
-        .cem-px{ width: 100px; }
+        .imagem-interativa{
+            display: flex;
+            flex-direction: column;
+            
+            button{
+                order: 0;
+                max-width: 90%;
+                width: clamp(50px, 10rem, 15rem);
+                margin-inline: auto;
+                background-color: #034159;
+                border: none;
+                box-shadow: 0 0 10px #000000;
+                color: white;
+                user-select: none;
+                &:hover{
+                    transform: scale(1.05);
+                    transition: transform 0.2s ease;
+                }
+                &:active{
+                    transform: scale(0.9);
+                    transition: transform 0.2s ease;
+                }
+            }
 
-        .ex-min :is(h2, p){ text-align: center; }
+            .texto-cem-px{
+                order: 1;
+                margin-block-end: 0;
+            }
 
+            .hr-cem-px{
+                width: 100px;
+                order: 2
+            }
+
+            img{
+                order: 3    
+            }
+
+            .hr-duzentos-px{
+                order: 4;
+            }
+
+            .texto-duzentos-px{
+                order: 5;
+                margin-block: 0;
+            }
+
+        }
+
+        a{
+            display: inline-block;
+            color: #0CF25D;
+            &:hover{
+                transform: scale(1.1);
+                transition: transform 0.2s ease;
+            }
+            &:active{
+                transform: scale(0.9);
+                transition: transform 0.2s ease;
+            }
+        }
+
+        .destaque{
+            color: #0CF25D;
+        } 
+        
+        .destaque-azul{
+            color: #034159;
+            text-shadow: 0 0 2px rgb(18, 232, 240);
+            font-weight: bolder;
+        }
+
+        #rolar, #sai-de-baixo{
+            position: fixed;
+            bottom: 5px;
+            background-color: transparent;
+            color: white;
+            cursor: pointer;
+            border: 0.5px solid #0CF25D;
+            user-select: none;
+            opacity: 0.3;
+            &:hover{
+                opacity: 1;
+            }
+        }
+
+        #rolar {
+            right: 10px; 
+        }
+
+        #sai-de-baixo {
+            left: 10px; 
+            width: 60px;
+        }
     </style>
 </head>
 <body>
+    <main>
     <h1>Explicando as funçoes Min, Max, Calc e Clamp</h1>
-    <article>
+    <article class="min-max">
         <h2>Aprendendo min() e max()</h2>
-            <div class="texto">
-                <p>a função min(), recebe 2 ou mais parametros e retorna o <b>menor</b> valor entre todos.</p>
-                <p>a função max(), recebe 2 ou mais parametros e retorna o <b>maior</b> valor entre todos.</p>
-                <p>No exemplo abaixo, assim que você passar o mouse sob a imagem, a função max(100px, 200px) sera executada. Ela retornara o maior valor, fazendo com que a imagem mude para o maior valor: 200px</p>
-                <p>Ao tirar o mouse de cima a funçao min() volta e escolhe o menor valor: 100px</p>
-                <p class="codigo"><code>max-width: min(100px, 200px); <br> :hover{ <br>max-width: max(100px, 200px); <br> }</code></p>
+            <div class="conteudo">
+                <div class="explicacao">
+                    <p>a função min(), recebe 2 ou mais parametros e retorna o <b>menor</b> valor entre todos.</p>
+                    <p>a função max(), recebe 2 ou mais parametros e retorna o <b>maior</b> valor entre todos.</p>
+                    <p>No exemplo abaixo, assim que você <span class="destaque">passar o mouse sobre a imagem</span>, a função max(100px, 200px) sera executada. Ela retornara o maior valor, fazendo com que a imagem mude para o maior valor: 200px</p>
+                    <p>Ao <span class="destaque">tirar o mouse de cima</span> a funçao min() volta e escolhe o menor valor: 100px</p>
+                    <p class="codigo">Codigo:<br><code>img{<br>  max-width: min(100px, 200px);<br>  :hover{<br>    max-width: max(100px, 200px);<br>  }<br>}</code></p>
+                </div>
+                <div class="imagem-interativa">
+                    <p class="texto-cem-px">100px</p>
+                    <hr class="hr-cem-px">
+                    
+                    <img src="https://embarcados.com.br/wp-content/uploads/2020/09/edx-arm-850x510.png" alt="imagem de computadores representando a tecnologia CSS" loading="lazy">
+                    
+                    <hr class="hr-duzentos-px">
+                    <p class="texto-duzentos-px">200px</p>
+                </div>
+                <div class="explicacao">
+                    <details id="saiba-mais">
+                        <summary>Saiba mais sobre min, max e clamp</summary>
+                            <p>Expressões matemáticas envolvendo porcentagens para larguras (width) e alturas (height) em colunas de tabela, grupos de colunas, linhas, grupos de linhas e células — tanto em layouts de tabela automáticos quanto fixos — podem ser tratadas como se o valor auto tivesse sido especificado.</p>
+                            <p>É permitido aninhar funções min() e outras funções max() como valores de expressão. As expressões são fórmulas matemáticas completas, portanto, você pode utilizar adição, subtração, multiplicação e divisão diretamente, sem a necessidade de usar a função calc().</p>
+                            <p>A expressão pode conter valores combinando os operadores de adição ( + ), subtração ( - ), multiplicação ( * ) e divisão ( / ), utilizando as regras padrão de precedência de operadores. Certifique-se de colocar um espaço de cada lado dos operandos + e -. Os operandos na expressão podem ser qualquer valor de sintaxe de comprimento <code>(&ltlength&gt)</code>.</p>
+                    </details>
+                </div>
             </div>
-
-            <p>100px</p><hr class="cem-px">
-            <img src="../img/css.jpg" alt="">
-            <hr>
-            <p>200px</p>
     </article>
     
-    <article>
+    <article class="calc">
         <h2>Aprendendo calc()</h2>
-        <div class="texto">
-            <p>A função calc() recebe 2 ou mais parametros e devolve o resultado da operação matemática especificada</p>
-            <p>Ao invés de separar os valores com ',' como no min e max, separamos com o operador que queremos.</p>
-            <p>operadores permitidos: - para subtração, + para adição, * para multiplicação, / para divisão</p>
+        <div class="conteudo">
+            <div class="explicacao">
+                <p>A função calc() recebe 2 ou mais parametros e devolve o resultado da operação matemática especificada</p>
+                <p>Ao invés de separar os valores com ',' como no min e max, separamos com o operador matemático que queremos utilizar.</p>
+                <p>operadores permitidos: - para subtração, + para adição, * para multiplicação, / para divisão</p>
+                <p><span class="destaque-azul">Clique no botão abaixo</span> para ver a função calc() em ação, ao clicar a imagem reduzira para 100px</p>
+                <p class="codigo">Codigo:<br><code>.calc button:active + img{<br>    max-width: calc(200px - 100px);<br>}</code></p>
+            </div>
+
+            <div class="imagem-interativa">
+                <hr class="hr-cem-px"><p class="texto-cem-px">100px</p>
+                <button>200px - 100px = 100px</button>
+
+                <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTIDb7fVn57YNfWmgMJMu9ZZAFOZ1UDe0bkq4AVuw_545ILFoCt" alt="Imagem do monte everest" loading="lazy">
+
+                <hr class="hr-duzentos-px"> 
+                <p class="texto-duzentos-px">200px</p>
+            </div>
+            <a target="_blank" href="https://www.freecodecamp.org/news/css-functions-for-beginners/">Acesse, e saiba mais sobre min(), max() e calc() e clamp()</a>
         </div>
     </article>
+    
+    <article class="clamp">
+        <h2>Aprendendo clamp()</h2>
+        <div class="conteudo">
+            <div class="explicacao">
+                <p>A função clamp() é mais simples do que parece. ela recebe 3 parametros: o valor mínimo, o valor ideal e o valor máximo. e devolve o valor que se melhor adapta ao cenario</p>
+                <p>exemplo: <code>clamp(200px, 80%, 1000px);</code> boa parte dessa pagina usa clamp() para se adaptar a diferentes telas, tomando como 80& o valor ideal do corpo principal do 'body', essa camada mais ao fundo que fica acima do gif do matrix</p>
+                <p>O elemento que possui esse clamp citado acima, não pode ter menos que 200px nem mais que 1000px, e tentara ficar em 80% da largura total da pagina</p>
+                <p>Isso facilita bastante o trabalho de criar layouts responsivos</p>
+                <p class="codigo">Codigo:<br><code>body{<br>   width: clamp(300px, 60%, 1200px);<br>}</code></p>
+            </div>
+        </div>
+    </article>
+    </main>
+    <button id="rolar">Spin</button>
+    <button id="sai-de-baixo">Sai de baixoo</button>
 </body>
 </html>

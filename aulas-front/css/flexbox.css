@@ -1,0 +1,113 @@
+/* Alterando o Box model (padding, width, height, border) */
+*, *::before, *::after{ box-sizing: border-box; }
+
+/* regra de reset parcial */
+body, h1, h2, p{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: system-ui, sans-serif;
+    color: #000000;
+    background-color: #c9c8c8;
+}
+
+nav{
+    background-color: #565857;
+    border-block-end: solid 3px #222;
+    height: 80px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    z-index: 100;
+    opacity: 0.8;
+    
+    /* Sobre direção e eixos do Flexbox 
+    A direção padão é flex-direction:row
+    O justify-content controla o main < - > horizontal
+    align-items alinha os elemtnos no eixo cross (vertical)*/
+    
+    /* Ao mudar o flex direction, os eixos mudam de lugar. */
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction:column;
+    a{
+        text-decoration: none;
+
+        color: white;
+        font-weight: bold;
+        &:hover, &:focus{ color:darkblue; }
+    }
+}
+
+.hero{
+    margin-block: 10px;
+    display: flex;
+    min-height: 300px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border: #20E68B 5px solid;
+    background-color: #44916E;
+    margin-inline: 20px;
+    transition: 0.2s ease-in-out;
+    &:hover, &:focus{ transform: scale(1.02); }
+    a{
+        color: white;
+        padding: 0.75rem;
+        background-color: #684fd4;
+        border-radius: 10px;
+        &:hover, &:focus{ 
+            transform: scale(1.02);
+            color: darkblue;
+        }
+    }
+    h1{
+        margin-inline: 10px;
+    }
+}
+
+.banner{
+    background-color: orange;
+    text-align: center;
+    padding: 1.5rem;
+    font-weight: bold;
+}
+
+.cards{
+    display: flex;
+    /* Quebra o layout fazendo com que, 
+    se não houver espaço suficiente, os elementos irão paa baixo */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-block: 1rem;
+    gap: 2rem;
+    /* height: 600px; */
+    background-color: rgb(107, 107, 103);
+    padding: 10px;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    flex-direction: column;
+    width: clamp(300px, 33%, 400px);
+    height: clamp(150px, 10vh, 200px);
+    transition: 0.2s ease-in-out;
+    background-color: white;
+    box-shadow: black 0 0 10px;
+    padding: 15px;
+    user-select: none;
+    &:hover{
+        transform: scale(1.05);
+    }
+    &#html{ background-color: rgb(230, 148, 148);}
+    &#css{ background-color: rgb(223, 148, 230);}
+    &#js{ background-color: rgb(230, 229, 148);}
+    
+}

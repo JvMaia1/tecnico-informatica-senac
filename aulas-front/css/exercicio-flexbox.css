@@ -1,0 +1,50 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+
+header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    align-items: center;
+    background-color: rgb(49, 228, 228);
+    justify-content: space-evenly;
+    padding: 2vh;
+    nav{
+        display: flex;
+        flex-wrap: wrap;
+        justify-items: center;
+        background-color: rgb(238, 238, 81);
+        padding: 1rem;
+        justify-content: space-evenly;
+        width: clamp(20vh, 80vh, 1000px);
+        border-radius: 10px;
+        a{
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+        }
+    }
+}
+
+.cards{
+    display: flex;
+    gap: 2rem;
+    background-color: white;
+    height: 500px;
+    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: clamp(300px, 20vh, 40vh);
+    height: clamp(200px, 10vh, 40vh) ;
+    box-shadow: 0 0 10px black;
+    padding: 20px;
+    h2{
+        font-weight: bolder;
+    }
+}
