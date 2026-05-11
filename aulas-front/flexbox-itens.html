@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox itens</title>
+    <style>
+        *, *::after, *::before{ 
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1{ font-size: 1.2rem;}
+        
+        body{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-color: #f4f4f4;
+            padding: 1rem;
+            /* margin-inline: 10px; */
+        }
+        
+        /* Flex container */
+        .container{
+            background-color: rgb(194, 195, 196);
+            border-radius: 5px;
+            padding: 5px;
+            display: flex;
+            gap: 10px;
+            margin-block: 10px;
+        }
+        
+        /* Flex items */
+        .item{
+            background-color: rgb(78, 154, 189);
+            padding: 20px;
+            text-align: center;
+            
+            /* tamanho ideal para o flex */
+            flex-basis: 150px;
+
+            /* Determinando se o item cresce */
+            flex-grow: 1;
+
+            /* Definindo se o item encolhe */
+            flex-shrink: 1;
+        }
+
+        /* Grow/Shrink acima de 1 aumenta o crescimento/reduçao proporcional */
+        .d{
+            background-color: yellow;
+            flex-grow: 2;
+        }
+
+        .e{
+            background-color: red;
+            flex-shrink: 5;
+        }
+
+        /* grow/shrink 0 tornam o elemento fixo no valor ideial */
+        .f{
+            background-color: aqua;
+            flex-shrink: 0;
+            flex-grow: 0;
+        }
+
+        .g{
+            background-color: aquamarine;
+            order: 3;
+            align-self: flex-end;
+        }
+        
+        /* Align-self muda o alinhamento do proprio item */
+        .h{
+            background-color: blue;
+            order: 1;
+            align-self: center;
+        }
+
+        .i{
+            background-color: blueviolet;
+        }
+
+        .alinhamentos{
+            height: 200px;
+            align-items: flex-start;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Conhecendo e experimentando propriedades flex para os itens de um container</h1>
+        <div class="container">
+            <div class="item a">Item A</div>
+            <div class="item b">Item B</div>
+            <div class="item c">Item C</div>
+        </div>
+
+        <div class="container">
+            <div class="item d">Item D</div>
+            <div class="item e">Item E</div>
+            <div class="item f">Item F</div>
+        </div>
+        
+        <div class="container alinhamentos">
+            <div class="item g">Item G</div>
+            <div class="item h">Item H</div>
+            <div class="item i">Item I</div>
+        </div>
+</body>
+</html>

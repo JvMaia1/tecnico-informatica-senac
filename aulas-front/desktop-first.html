@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop First</title>
+    <style>
+        /* Regras BASE, de uso geral */
+        *, *::before, *::after{ box-sizing: border-box; }
+        
+        body, h1, h2, p{
+            margin: 0;
+            padding: 0;
+        }
+
+        html { font-size: 12px; }
+
+        body{
+            font-size: 1.6rem;
+            font-family: sans-serif, system-ui;
+            margin: 1rem;
+            background-color: antiquewhite;
+        }
+
+        span{
+            color: brown;
+            text-decoration: underline;
+        }
+
+        .container{
+            background-color: white;
+            padding: 2rem;
+            margin-block-start: 2rem;
+            width: 90%;
+            margin-inline: auto;
+            line-height: 2.8rem;
+            max-width: 800px;
+
+        }
+        
+        h1{ font-size: 2.5rem; }
+        h2{ font-size: 2rem; }
+        p{ font-size: 1.8rem;}
+        ul{
+            display: flex;
+            padding: 0;
+            justify-content: space-evenly;
+            list-style: none;
+            li{
+                background-color: yellow;
+                padding: 1rem;
+                border-radius: 1rem;
+                border: 1px solid black;
+                animation-name: fadeIn;
+                animation-duration: 1s;
+            }
+        }
+        
+        @media (max-width: 900px){
+            
+            html{font-size: 10px;}
+            .container{max-width: auto;}
+            ul{
+                /* all: unset; */
+                display: block;
+                list-style: disc;
+                animation-name: none;
+                animation-duration: none;
+                li{background-color: transparent;}
+            }
+        }
+        /* Criando media querie ou breakpoint */
+        
+        
+        @keyframes fadeIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to{
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Media Queries - <span>Desktop First</span></h1>
+
+            <h2>Conceito</h2>
+
+                <p>Media Queries são regras especiais em que criamos alterações na pagina de acordo com determinadas condiçoes (ex: tamanho da tela).</p>
+
+                <p>Essas alterações ocorrem com a configuração de <b>breakpoints</b></p>
+
+                <p>As media queries são aplicadas de acordo com a estratégia usada para design responsivo, podendo ser:</p>
+
+                <ul>
+                    <li>Mobile first: do pequeno para o grande</li>
+                    <li><b>Desktop first</b>: do grande para o pequeno</li>
+                </ul>
+    </div>
+</body>
+</html>

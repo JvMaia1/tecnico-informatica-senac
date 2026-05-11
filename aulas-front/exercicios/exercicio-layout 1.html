@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercício Layout Flexbox</title>
+<style>
+*, *::after, *::before {
+/* Reset geral */
+box-sizing: border-box;
+padding: 0;
+margin: 0;  
+}
+
+body{
+    font-family: sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+    /* Aplicando flex column no body com min height para fazer com que com que o conteudo preencha toda a tela  SEM OVERFLOW*/
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.tudo {
+    /* Garantindo que o conteudo preencha toda a tela*/
+    display: flex;
+    flex: 1;
+    /* flex-direction: column; */
+}
+
+nav {
+    /* Configuraçoes de flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    /* cores */
+    color: white;
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    
+    /* Determinando tamanhos minimos e desejados para o menu */
+    width: clamp(160px, 17vw, 20vw);
+    font-size: clamp(12px, 2vw, 24px );
+    padding: 1rem;
+    
+    /* Tirando sekleção de texto dos titulos */
+    h2{ user-select: none; }
+    
+    a{
+        /*Cor, micro-interação e estilo dos botões do menu */
+        color: white;
+        
+        text-decoration: none;
+        padding: 1rem;
+        text-align: start;
+        
+        border-radius: 5px;
+        
+        &:hover{ background-color: rgba(255, 255, 255, 0.3); }
+    }
+}
+
+h1{font-size: clamp(12px, 8vw, 48px );}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 75%, rgba(0, 212, 255, 1) 100%);
+    text-shadow: 0 0px 4px black;
+    color: white;
+    
+    /* garantindo que a barra do header preencha toda a area horizontal
+    e mantenha uma distancia agradavel das bordas */
+    max-width: 100%;
+    padding: 1.5rem;
+    font-size: 20px;
+    
+    /* Tirando sekleção de texto dos titulos */
+    user-select: none;
+
+    /* Estilizando botão admin */
+    p {
+        border-radius: 2px;
+        padding: 2px;
+
+        
+        text-shadow: none;
+        background-color: white;
+        color: black;
+        box-shadow: 0 0 5px black;
+    }
+}
+
+.container {
+    /* Garantindo que o conteudo da pagina preencha todo o
+    espaço horizontal e mantenha uma distancia
+    confortavel das bordas */
+    padding: 1rem;
+    width: 100%;
+}
+
+.cards {
+    /* Configurando cards para responsiveis até 320px*/
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: space-evenly;
+    font-size: clamp(12px, 2vw, 24px );
+    article{
+        /* divindo tamanhao entre os cards e estilizando */
+        flex-basis: clamp(70px, 33%, 800px);
+        background-color: #e2e8f0;
+        padding: 1rem;
+        border-radius: 0.5rem;
+    }
+}
+
+.item{ 
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+}
+
+.lista-atividades {
+
+    h3{ padding-block: 0.5rem; }
+
+    article { 
+        background-color: #e2e8f0;
+        margin-block: 1rem ;
+        justify-content: space-between;
+        padding: 0.5rem;
+        gap: 10px;
+        font-size: clamp(12px, 2vw, 24px );
+
+        p, h4, time{
+            padding: 1rem;
+            text-align: start;
+            /* Garantindo altura adaptavel para pequenos dispositivos */
+            height: clamp(50px, 100px, 125px);
+            /* Garantindo que todos os objetos crescam e diminuam,
+            e tenham um flex basis de 150px */
+            flex: 1 1 150px;
+        }
+
+        h4 {
+            background-color: rgba(255, 0, 0, 0.2);
+        }
+        
+        p {
+            background-color: greenyellow;
+            /* Garantindo que esse elemento cresça mais que todos os outros sempre */
+            flex-grow: 3;
+        }
+        
+        time {
+            background-color: aqua;
+        }
+    }
+}
+</style>
+
+</head>
+
+<body>    
+    <header>
+        <h1>Visão Geral</h1>
+        <p>🔓 Admin</p>
+    </header>
+    
+    <div class="tudo">
+
+    <nav>
+        <h2>Painel</h2>
+        <a href="#">Dashboard</a>
+        <a href="#">Usuários</a>
+        <a href="#">Relatórios</a>
+        <a href="#">Configurações</a>
+    </nav>
+
+    <div class="container">
+
+        <main>
+
+            <section class="cards">
+                <article>
+                    <h3>Usuários</h3>
+                    <p>1200</p>
+                </article>
+
+                <article>
+                    <h3>Vendas</h3>
+                    <p>R$ 8.500</p>
+                </article>
+
+                <article>
+                    <h3>Acessos</h3>
+                    <p>3.200</p>
+                </article>
+            </section>
+
+            <section>
+                
+                <div class="lista-atividades">
+                    <h3>Últimas atividades</h3>
+
+                    <article class="item">
+                        <h4>Ozzy Osbourne</h4>
+                        <p>Comprou um curso avançado de JS</p>
+                        <time>Hoje</time>
+                    </article>
+
+                    <article class="item">
+                        <h4>Ronnie James Dio</h4>
+                        <p>Atualizou o perfil com novas informações</p>
+                        <time>Ontem</time>
+                    </article>
+
+                    <article class="item">
+                        <h4>Ian Gillan</h4>
+                        <p>Fez login no sistema</p>
+                        <time>2 dias atrás</time>
+                    </article>
+
+                    <article class="item">
+                        <h4>Tony Martin</h4>
+                        <p>Solicitou suporte técnico</p>
+                        <time>3 dias atrás</time>
+                    </article>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</div>
+
+</body>
+</html>

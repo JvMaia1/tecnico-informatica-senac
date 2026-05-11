@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animações</title>
+<style>
+/* Alterando o Box Model (padding, width, height, border) */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Regra de reset parcial */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+.hero p {
+    animation-name: subir;
+    animation-duration: 2s ;
+    animation-delay: 1s;
+    /* aplica os estios do primeiro keyframe antes da ani,ação começar, durante o tempo de animation-delay. */
+    animation-fill-mode: backwards;
+}
+
+h1, .hero p {
+    animation-name: subir;
+    animation-duration: 2s;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    color: #222;
+    background-color: #f5f5f5;
+    animation-name: mudarCorFundo;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+nav {
+    background-color: white;
+    border-block-end: solid 1px;
+    min-height: 80px;
+    position: sticky;
+    top: 0;
+
+    /* Habilitando o modo flex */
+    display: flex;
+    gap: 30px;
+
+    /* Sobre direção e eixos do Flexbox
+    A direção padrão é flex-direction: row.
+    Nesse caso, justify-content alinha os 
+    elementos no eixo main (horizontal), e o
+    align-items alinha os elementos no eixo cross (vertical).
+
+    Se mudar a direção para column (coluna), essa lógica
+    também é invertida: justify-content alinhará os elementos
+    verticalmente, e o align-items alinhará os elementos 
+    horizontalmente. */
+
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    /* CSS Nesting */
+    
+}
+
+nav a {
+    text-decoration: none;
+    color:#222;
+    font-weight: bold;
+    /* Ele serve como âncora pro position dos elemtnos filhos */
+    position: relative;
+}
+
+nav a:hover, nav a:focus {
+    color: darkblue;
+}
+
+nav a:hover::after, nav a:focus::after {
+    width: 100%;
+}
+
+/* Definimos o elemento a como conetxto de posicionamento do pseudo-elemento after */
+nav a::after {
+    content:"";
+    background-color: #1643a3;
+    width: 0%; /* provisorio */
+    height: 4px;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: 0.3s ease-in-out;
+
+}
+
+.hero {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    a {
+        text-decoration: none;
+        background-color: #16a34a;
+        color: white;
+        padding: 0.5rem;
+        border-radius: 8px;
+
+        &:hover, &:focus {
+            background-color: #0f5c2c;
+        }
+    }
+}
+
+.banner {
+    background-color: #facc15;
+    text-align: center;
+    padding: 1.2rem;
+    font-weight: bold;
+    margin-block: 1rem;
+    animation-name: deslizarParaDireita;
+    animation-duration: 2s;
+    animation-fill-mode: backwards;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    
+    /* Alinha os itens de maneira agrupada
+    (precisa ter espaço suficiente pra isso) */
+    align-content: flex-start;
+    
+    /* "Quebra" o layout. Se não houver espaço suficiente, os elementos irão pra baixo. */
+    flex-wrap: wrap;
+    
+    gap: 1.2rem;
+    margin-block-end: 2rem;
+    height: 600px;
+}
+
+.card {
+    width: 250px;
+    min-height: 200px;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0 10px;
+    border-radius: 4px;
+    animation-name: surgirDoFundo;
+    animation-duration: 1s;
+    animation-fill-mode: backwards;
+}
+
+#card2{
+    animation-delay: 0.1s;
+}
+
+#card3{
+    animation-delay: 0.2s;
+}
+
+/* Regras de animação
+utilizam uma diretiva especial chamada
+@keyframes contendo um nome e seletores de animação*/
+
+@keyframes mudarCorFundo {
+
+    0% {
+        background-color: #9e16a3;
+    }
+
+    50%{ 
+        background-color: rgb(219, 111, 219);
+    }
+
+    100% {
+        background-color: #ff07d6;
+    }
+}
+
+@keyframes subir{
+    from{
+        opacity: 0;
+        transform: translatey(30px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes deslizarParaDireita {
+    from{
+        transform: translateX(-100vw);
+    }
+
+    to{
+        transform: translateX(0px);
+    }
+
+}
+
+@keyframes surgirDoFundo {
+    from{
+        opacity: 0;
+        transform: scale(0);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+</style>
+</head>
+<body>
+    <!-- Barra de navegação -->
+    <nav>
+        <a href="">Início</a>
+        <a href="">Cursos</a>
+        <a href="">Contato</a>
+    </nav>
+
+    <!-- Seção/Chamada de destaque
+    Normalmente conhecida como "Hero" contendo
+    uma CTA (Call To Action)  -->
+    <section class="hero">
+        <h1>Aprenda CSS do Zero</h1>
+        <p>Layouts modernos com Flexbox</p>
+        <p><a href="">Matricule-se já!</a></p>
+    </section>
+
+    <!-- Banner publicitário -->
+    <div class="banner">
+        Promoção: 50% OFF hoje!
+    </div>
+
+    <!-- Cards (Cartões) de conteúdo -->
+    <main class="cards">
+        <article id="card1" class="card">
+            <h2>HTML</h2>
+            <p>Estrutura das páginas.</p>
+        </article>
+
+        <article id="card2" class="card">
+            <h2>CSS</h2>
+            <p>Estilo, layout e animação.</p>
+        </article>
+
+        <article id="card3" class="card">
+            <h2>JS</h2>
+            <p>Comportamento e interatividade.</p>
+        </article>
+    </main>
+</body>
+</html>
